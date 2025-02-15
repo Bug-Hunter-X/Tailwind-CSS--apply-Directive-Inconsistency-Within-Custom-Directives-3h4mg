@@ -1,0 +1,19 @@
+This bug arises when using Tailwind CSS's `@apply` directive within a custom directive.  The `@apply` directive might not correctly apply the styles if the custom directive is not structured properly, leading to unexpected visual inconsistencies.
+
+Example of buggy code (bug.css):
+
+```css
+@layer components {
+  .my-custom-directive {
+    @apply text-blue-500;
+    /* Other styles... */
+  }
+}
+
+/* ... elsewhere in your CSS ... */
+.my-element {
+  @apply my-custom-directive;
+}
+```
+
+The above code might sometimes fail to apply `text-blue-500` to `.my-element`. 
