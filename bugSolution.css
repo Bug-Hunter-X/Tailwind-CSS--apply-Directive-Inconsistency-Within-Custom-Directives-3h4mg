@@ -1,0 +1,22 @@
+This solution involves ensuring that the custom directive is properly defined and applied, potentially addressing order of operations issues:
+
+```css
+/* bugSolution.css */
+@layer components {
+  .my-custom-directive {
+    @apply text-blue-500; /* ... other styles */
+  }
+}
+
+.my-element {
+  @apply my-custom-directive; 
+}
+
+/*Alternatively, a more explicit approach that may be more reliable*/
+.my-element {
+    text-blue-500; /* ... other styles */
+}
+
+```
+
+This revised approach directly applies the styles to `.my-element`, bypassing the potential issues with the custom directive. Using this method can provide more explicit control and improve reliability.
